@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Limpiar Contenido Canvas</title>
+</head>
+<body>
+
+<h1>Limpiar Contenido Canvas</h1>
+
+<canvas height="300px" width="300px" id="micanvas">
+Su navegador no soporta en elemento CANVAS</canvas>
+<br>
+<button id="limpiar">Limpiar Canvas</button>
+
+<script>
+var canvas = document.getElementById("micanvas");
+var ctx = canvas.getContext("2d");
+
+for (var x=0; x<=300; x=x+10){
+	ctx.moveTo(x,0);
+	ctx.lineTo(x,300);
+}
+
+for (var y=0; y<=300; y=y+10){
+	ctx.moveTo(0,y);
+	ctx.lineTo(300,y);
+}
+
+// Mueves el pencil y luego persistes con strok
+ctx.strokeStyle = "#f212aa";
+ctx.stroke();
+
+
+var limpiar = document.getElementById("limpiar");
+limpiar.addEventListener("click",function(){
+	canvas.width=canvas.width;
+},false);
+
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/limpiar-contenido-de-un-canvas-en-html5/">http://lineadecodigo.com/html5/limpiar-contenido-de-un-canvas-en-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Posición Actual</title>
+</head>
+<body>
+<h1>Posición Actual</h1>
+
+<div id="posicion"></div>
+
+<script>
+var x=document.getElementById("posicion");
+
+if (navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(showPosition);
+} else {
+	x.innerHTML="Geolocation is not supported by this browser.";
+}
+	
+function showPosition(position) {
+	x.innerHTML="Latitude: " + position.coords.latitude + 
+		"<br />Longitude: " + position.coords.longitude; 
+}	
+	
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/geolocalizando-a-un-usuario-con-html5/">http://lineadecodigo.com/html5/geolocalizando-a-un-usuario-con-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Tiempo total del v&iacute;deo</title>
+</head>
+<body>
+<h1>Tiempo total del v&iacute;deo</h1>
+
+<video id="mivideo" controls>
+	<source src="http://easyhtml5video.com/images/happyfit2.ogv" type="video/ogg"></source>
+	Tu navegador no soporta el elemento <code>video</code>
+</video>
+
+<br/>
+<strong>Tiempo Total Video:</strong> <span id="tiempototal"></span> segundos.
+
+<script type="text/javascript">
+
+	//Obtenemos la referencia al vídeo
+	var v = document.getElementById("mivideo");
+		
+	v.addEventListener("loadeddata",function(ev){
+		document.getElementById("tiempototal").innerHTML = v.duration;		
+	},true);
+	
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/tiempo-total-de-un-video-html5/">http://lineadecodigo.com/html5/tiempo-total-de-un-video-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

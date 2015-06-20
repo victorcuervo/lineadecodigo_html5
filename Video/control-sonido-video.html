@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Controlar el Sonido del V&iacute;deo</title>
+</head>
+<body>
+<h1>Controlar el Sonido del V&iacute;deo</h1>
+
+<video id="mivideo" controls>
+	<source src="http://easyhtml5video.com/images/happyfit2.ogv" type="video/ogg"></source>
+	Tu navegador no soporta el elemento <code>video</code>
+</video>
+
+<br/>
+
+<label for="volumen">Volumen: </label><input type="range" min="0" max="1" value="1" step="0.1" id="volumen">
+<input type="checkbox" id="mute"><label for="mute">Mute</label>
+
+<script>
+
+var oldvolume = 1;
+var mute = document.getElementById("mute");
+var barra = document.getElementById("volumen");
+
+mute.addEventListener("change",function(ev){
+	var v = document.getElementById("mivideo");
+	if (ev.target.checked) {
+		oldvolume = v.volume;		
+		v.volume = 0;
+		barra.value = 0;
+	} else {
+		v.volume = oldvolume;
+		barra.value = oldvolume;
+	}
+},true);
+
+
+barra.addEventListener("change",function(ev){
+	var v = document.getElementById("mivideo");
+	v.volume = ev.target.value;	
+	mute.checked=false;
+},true);
+	
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/controlar-volumen-de-video-html5-con-un-slider/">http://lineadecodigo.com/html5/controlar-volumen-de-video-html5-con-un-slider/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Aros Ol&iacute;mpicos</title>
+</head>
+<body>
+
+<h1>Aros Ol&iacute;mpicos</h1>
+
+<canvas height="300px" width="600px" id="micanvas">
+Su navegador no soporta en elemento CANVAS</canvas>
+
+<script>
+var canvas = document.getElementById("micanvas");
+var ctx = canvas.getContext("2d");
+
+
+
+
+// Azul
+ctx.beginPath();
+ctx.arc(60,60,50,0,(Math.PI/180)*360,true);
+ctx.fillStyle="rgba(255,255,0,0)";
+ctx.fill();
+ctx.lineWidth = 10;
+ctx.strokeStyle = "rgb(0,129,188)";
+ctx.stroke();
+
+// Negro
+ctx.beginPath();
+ctx.moveTo(230,60);
+ctx.arc(180,60,50,0,(Math.PI/180)*360,true);
+ctx.fillStyle="rgba(255,255,0,0)";
+ctx.fill();
+ctx.lineWidth = 10;
+ctx.strokeStyle = "rgb(35,34,35)";
+ctx.stroke();
+
+// Rojo
+ctx.beginPath();
+ctx.moveTo(350,60);
+ctx.arc(300,60,50,0,(Math.PI/180)*360,true);
+ctx.fillStyle="rgba(255,255,0,0)";
+ctx.fill();
+ctx.lineWidth = 10;
+ctx.strokeStyle = "rgb(238,50,78)";
+ctx.stroke();
+
+// Amarillo
+ctx.beginPath();
+// Arco derecha
+ctx.moveTo(170,100);
+ctx.arc(120,100,50,0,(Math.PI/180)*265,true);
+// Arco izquierda
+ctx.moveTo(90,60);
+ctx.arc(120,100,50,(Math.PI/180)*248,(Math.PI/180)*20,true);
+ctx.fillStyle="rgba(255,255,0,0)";
+ctx.fill();
+ctx.lineWidth = 10;
+ctx.strokeStyle = "rgb(252,177,49)";
+ctx.stroke();
+
+
+// Verde
+ctx.beginPath();
+//Arco derecha
+ctx.moveTo(290,100);
+ctx.arc(240,100,50,0,(Math.PI/180)*265,true);
+// Arco izquierda
+ctx.moveTo(210,60);
+ctx.arc(240,100,50,(Math.PI/180)*248,(Math.PI/180)*20,true);
+ctx.fillStyle="rgba(255,255,0,0)";
+ctx.fill();
+ctx.lineWidth = 10;
+ctx.strokeStyle = "rgb(0,157,87)";
+ctx.stroke();
+
+
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/aros-olimpicos-con-canvas-y-html5/">http://lineadecodigo.com/html5/aros-olimpicos-con-canvas-y-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+
+</body>
+</html>

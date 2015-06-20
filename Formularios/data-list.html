@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>DataList en HTML5</title>
+</head>
+<body>
+<h1>DataList en HTML5</h1>
+
+<label for="mislider">Elige la cantidad: </label>
+<input type="range" min="0" max="10" value="3" step="1" id="mislider" list="lista">
+<datalist id="lista">
+ <option value="0" label="0">
+ <option value="2" label="2">
+ <option value="4" label="4">
+ <option value="6" label="6">
+ <option value="8" label="8">
+ <option value="10" label="10">
+</datalist>
+
+<br/><br/>
+
+<label for="misurl">URL: </label>
+<input type="url" id="misurl" list="listaurls" size="100">
+<datalist id="listaurls">
+ <option value="http://www.ayudaenlaweb.com" label="Ayuda en la Web">
+ <option value="http://lineadecodigo.com" label="Línea de Código">
+ <option value="http://www.dudasprogramacion.com" label="Dudas de Programación">
+</datalist>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/datalist-en-html5/">http://lineadecodigo.com/html5/datalist-en-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

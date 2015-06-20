@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Dibujar Circulo</title>
+</head>
+<body>
+
+<h1>Dibujar Circulo</h1>
+
+<canvas height="300px" width="600px" id="micanvas">
+Su navegador no soporta en elemento CANVAS</canvas>
+
+<script>
+var canvas = document.getElementById("micanvas");
+var ctx = canvas.getContext("2d");
+
+// Cuatro de arco
+ctx.arc(100,70,50,0,(Math.PI/180)*270,true);
+ctx.moveTo(280,70);
+// Medio arco
+ctx.arc(230,70,50,0,(Math.PI/180)*180,true);
+ctx.moveTo(410,70);
+// Circulo completo
+ctx.arc(360,70,50,0,(Math.PI/180)*360,true);
+
+// Rellenar parte del círculo
+ctx.fillStyle="#f99";
+ctx.fill();
+
+// Rellenar el borde
+ctx.strokeStyle = "#f00";
+ctx.lineWidth = 10;
+ctx.stroke();
+
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/dibujar-un-circulo-sobre-el-canvas-de-html5/">http://lineadecodigo.com/html5/dibujar-un-circulo-sobre-el-canvas-de-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+</body>
+</html>

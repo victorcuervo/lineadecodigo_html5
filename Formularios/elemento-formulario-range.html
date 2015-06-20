@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Elemento Formulario Rango</title>
+</head>
+<body>
+<h1>Elemento Formulario Rango</h1>
+
+<input type="range" min="0" max="10" value="3" step="1" id="mislider">
+<span id="valor"></span>
+
+<script>
+var barra = document.getElementById("mislider");
+barra.addEventListener("change",function(ev){
+	
+	var resultado = document.getElementById("valor");
+	resultado.innerHTML = ev.currentTarget.value;
+	
+},true);
+
+document.getElementById("valor").innerHTML = document.getElementById("mislider").value;
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/elemento-rango-en-formularios-html5/">http://lineadecodigo.com/html5/elemento-rango-en-formularios-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

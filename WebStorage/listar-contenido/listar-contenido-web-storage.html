@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Listar el contenido de la Local Storage</title>
+</head>
+<body>
+
+<h1>Listar el contenido de la Local Storage</h1>
+<script type="text/javascript">
+
+// Insertamos contenido
+if (localStorage)  {
+    document.write("La Local Storage está soportada" + "<br/>"); 
+    localStorage["n1"] = "Victor";
+    localStorage["n2"] = "Juan";
+    localStorage["n3"] = "Maria";
+    localStorage["n4"] = "Ana";
+    localStorage["n5"] = "Luis";
+    localStorage["n6"] = "Verónica";
+    localStorage["n7"] = "Javier";	
+} else  
+    document.write("La Local Storage NO está soportada");
+
+// Volcamos el contenido del la LocalStorage
+for (x=0; x<=localStorage.length-1; x++)  {  
+        clave = localStorage.key(x); 
+        document.write("La clave " + clave + " contiene el valor " + localStorage.getItem(clave) + "<br />");  
+}
+</script>
+
+<br><br>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/listar-el-contenido-de-local-storage-en-html5/">http://lineadecodigo.com/html5/listar-el-contenido-de-local-storage-en-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

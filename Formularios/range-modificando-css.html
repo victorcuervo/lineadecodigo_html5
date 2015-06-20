@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Slider para redondear esquinas</title>
+<style>
+#micapa {
+	width:600px;
+	border:ridge medium black;
+	padding: 30px;	
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;			
+}
+</style>
+
+</head>
+<body>
+<h1>Slider para redondear esquinas</h1>
+
+<div id="micapa">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus venenatis est sit amet nulla imperdiet vestibulum. Sed facilisis mauris nisl, id ultricies massa. Aliquam erat volutpat. Nam gravida turpis id justo adipiscing at convallis turpis pellentesque. Duis vitae orci felis, vitae aliquam nibh. In cursus enim ut quam placerat sagittis. Sed imperdiet velit sit amet diam pharetra dictum.
+Cras volutpat pretium eros condimentum laoreet. Fusce eros est, euismod ultricies lobortis quis, malesuada et metus. Mauris vel lorem leo, eu elementum lectus. Mauris diam massa, rutrum eget hendrerit ac, vehicula non turpis. Praesent commodo lacus eget sapien hendrerit gravida volutpat purus blandit. Aenean ornare iaculis tortor. Suspendisse potenti.
+Fusce fringilla congue ipsum vitae facilisis. Phasellus volutpat cursus nibh, eu semper massa sagittis eget. Maecenas laoreet, sapien tempor congue sagittis, velit magna dictum mauris, at vulputate magna risus non nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec lorem erat, imperdiet non pharetra et, laoreet vel lectus. Etiam quis leo augue. Sed tristique bibendum ligula a scelerisque. Suspendisse potenti. Pellentesque sit amet mi felis. Suspendisse justo quam, tincidunt id vehicula ac, faucibus et nulla.</div>
+
+<br/><label for="mislider">Redondea los bordes:</label>
+<br/><input id="mislider" type="range" min=0 max=20 value="6">
+
+<script>
+var barra = document.getElementById("mislider");
+var fuente = 2;
+barra.addEventListener("change",function(ev){	
+	resultado = barra.value;	
+	var capa = document.getElementById("micapa");
+	var tamanio = fuente*resultado+"px";	
+	capa.setAttribute("style","font-size:"+tamanio);
+	capa.style.borderRadius = tamanio;	
+},true);
+</script>
+
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/modificando-propiedades-css-con-un-slider/">http://lineadecodigo.com/html5/modificando-propiedades-css-con-un-slider/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

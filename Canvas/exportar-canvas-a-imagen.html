@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Exportar Canvas a Imagen</title>
+</head>
+<body>
+<h1>Exportar Canvas a Imagen</h1>
+
+<p style="text-align:center;"><canvas height="300px" width="300px" id="micanvas">
+Su navegador no soporta en elemento CANVAS</canvas></p>
+
+
+<fieldset><legend>Pulsa sobre el tipo de imagen y el resultado se generará abajo</legend><button id="png">Generar PNG</button> | <button id="jpeg">Generar JPEG</button><br/> 
+</fieldset>
+
+<img src="" id="laimagen"/>
+
+<script>
+var canvas = document.getElementById("micanvas");
+var ctx = canvas.getContext("2d");
+
+// Dibujamos algo sencillo en el Canvas para exportarlo
+ctx.fillStyle = "rgb(255,0,0)";
+ctx.fillRect(20,20,100,100);
+
+ctx.fillStyle = "rgb(0,255,0)";
+ctx.fillRect(60,60,140,140);
+
+ctx.fillStyle = "rgb(0,0,255)";
+ctx.fillRect(100,100,180,180);
+
+
+var img = document.getElementById("laimagen");
+
+var png = document.getElementById("png");
+png.addEventListener("click",function(){	
+	img.src = canvas.toDataURL("image/png");	
+},false);
+
+
+
+var jpeg = document.getElementById("jpeg");
+jpeg.addEventListener("click",function(){
+	img.src = canvas.toDataURL("image/jpeg");
+},false);
+
+</script>
+
+
+<br><br>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/exportar-el-contenido-de-un-canvas-html5-a-una-imagen/">http://lineadecodigo.com/html5/exportar-el-contenido-de-un-canvas-html5-a-una-imagen/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

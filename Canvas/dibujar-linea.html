@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Dibujar Linea</title>
+</head>
+<body>
+<h1>Dibujar Linea</h1>
+
+<canvas height="300px" width="300px" id="micanvas">
+Su navegador no soporta en elemento CANVAS</canvas>
+
+<script>
+var canvas = document.getElementById("micanvas");
+var ctx = canvas.getContext("2d");
+
+ctx.moveTo(10,10);
+ctx.lineTo(180,180);
+
+ctx.strokeStyle="#f00";
+ctx.stroke();
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/dibujar-lineas-en-canvas-con-html5/">http://lineadecodigo.com/html5/dibujar-lineas-en-canvas-con-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

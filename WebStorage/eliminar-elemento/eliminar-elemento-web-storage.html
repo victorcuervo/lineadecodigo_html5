@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Eliminar un elemento del Local Storage</title>
+<script type="text/javascript">
+function cargarCache() {
+	// Insertamos contenido
+	if (localStorage)  {
+	    document.write("La Local Storage está soportada" + "<br/>"); 
+	    localStorage["n1"] = "Victor";
+	    localStorage["n2"] = "Juan";
+	    localStorage["n3"] = "Maria";
+	    localStorage["n4"] = "Ana";
+	    localStorage["n5"] = "Luis";
+	    localStorage["n6"] = "Verónica";
+	    localStorage["n7"] = "Javier";	
+	} else  
+	    document.write("La Local Storage NO está soportada<br />");
+}
+
+function listarCache() {
+	// Volcamos el contenido del la LocalStorage
+	if (localStorage)  {
+		for (x=0; x<=localStorage.length-1; x++)  {  
+        	clave = localStorage.key(x); 
+        	document.write("La clave " + clave + " contiene el valor " + localStorage.getItem(clave) + "<br />");  
+		}
+	}
+}</script>
+</head>
+<body>
+
+<h1>Eliminar un elemento del Local Storage</h1>
+
+<script type="text/javascript">
+
+ document.write("<strong>Cargamos elementos</strong><br />");
+ cargarCache();
+ document.write("<strong>Listamos elementos</strong><br />");
+ listarCache();
+
+ document.write("<strong>Eliminamos elementos</strong><br />");
+ // Eliminamos elementos
+ if (localStorage)  {
+ 	localStorage.removeItem("n1");
+ 	localStorage.removeItem("n2");
+ 	localStorage.removeItem("n3");
+ } 
+
+ document.write("<strong>Volvemos a listar</strong><br />");
+ listarCache();
+
+</script>
+
+<br><br>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/eliminar-un-elemento-de-local-storage-en-html5/">http://lineadecodigo.com/html5/eliminar-un-elemento-de-local-storage-en-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

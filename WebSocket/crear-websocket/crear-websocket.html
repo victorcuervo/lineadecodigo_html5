@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Abrir un WebSocket</title>
+</head>
+<body>
+
+<h1>Abrir un WebSocket</h1>
+
+<script type="text/javascript">
+
+
+	function escribir(texto){
+		valor = document.getElementById("caja").value;
+		document.getElementById("caja").value = valor + texto + "\n";
+	}	
+
+	var mysocket = new WebSocket("ws://echo.websocket.org");
+
+	mysocket.onopen = function (evt){
+ 		escribir("Websocket abierto");
+ 		
+	};
+
+	mysocket.onmessage = function (evt){
+		escribir("RECIBIDO: " + evt.data);
+		
+	};
+
+	mysocket.onclose = function (evt){
+		 escribir("Websocket cerrado");
+	};
+
+	mysocket.onerror = function (evt) {
+		escribir("ERROR: " + evt.data);
+	}
+
+	function enviar(texto) {
+		mysocket.send(texto);
+		escribir("ENVIADO: " + texto);
+	}
+
+	function desconectar(){		
+		mysocket.close();
+	}
+
+	
+</script>
+
+
+<textarea id="caja" cols="100" rows="20"></textarea><br/>
+<input id="mensaje" type="text" size="105"></input>
+<button onClick="enviar(document.getElementById('mensaje').value);">Enviar</button>
+<button onClick="desconectar()">Desconectar</button>
+
+
+<br><br>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/crear-un-websocket/">http://lineadecodigo.com/html5/crear-un-websocket/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+</body>
+</html>

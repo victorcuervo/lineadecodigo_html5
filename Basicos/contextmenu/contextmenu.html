@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Menu Contextual en HTML5</title>
+</head>
+<body>
+<h1>Menu Contextual en HTML5</h1>
+
+<label for="color">Color:</label>
+<input id="color" type="text" contextmenu="colorMenu">
+<menu type="context" id="colorMenu">
+	<menuitem label="Rojo" id="rojo" icon="rojo.png"/></menuitem>
+	<menuitem label="Verde" id="verde" icon="verde.png"/></menuitem>
+	<menuitem label="Azul" id="azul" icon="azul.png"/></menuitem>
+</menu>
+<br/><em>Pincha con el botón derecho sobre el campo y elige un color del menú emergente.</em>
+
+<script>
+
+var campo = document.getElementById("color");
+var color = document.getElementById("colorMenu");
+color.addEventListener("click",function(ev){
+	campo.value = ev.target.label;
+},true);
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/menu-contextual-en-html5/">http://lineadecodigo.com/html5/menu-contextual-en-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+</body>
+</html>

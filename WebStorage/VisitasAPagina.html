@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5 Storage</title>
+<script type="text/javascript">
+	function Counter() {
+		if (!localStorage.getItem('loadCont')) {
+			localStorage.setItem('loadCont', 0);
+		}
+
+		localStorage.setItem('loadCont', parseInt(localStorage
+				.getItem('loadCont')) + 1);
+		document.getElementById('cont').innerHTML = localStorage
+				.getItem('loadCont');
+	}
+	function storeData() {
+		var Data = document.getElementById('Input').value;
+		localStorage.setItem('Data', Data);
+	}
+	function getData() {
+		var Data = localStorage.getItem('Data');
+		document.getElementById('Input').value = Data;
+	}
+</script>
+
+
+</head>
+<body onload="Counter()">
+	<form id="myForm">
+		<p>
+			Has visto esta página <span id="cont"></span> veces.
+		</p>
+		<p>
+			<input type="button" onclick="localStorage.clear();" value="Limpiar" />
+		</p>
+		<input type="text" id="Input"> <input type="button"
+			onclick="storeData()" value="guardar"> <input type="button"
+			onclick="getData()" value="obtener ultimo dato">
+	</form>
+	
+	<br><br>
+	
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/web-storage-y-webmatrix/">http://lineadecodigo.com/html5/web-storage-y-webmatrix/</a><br/>
+Dave Rndn en <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+</body>
+</html>

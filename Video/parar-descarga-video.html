@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Parar descarga de v&iacute;deo</title>
+</head>
+<body>
+<h1>Parar descarga de v&iacute;deo</h1>
+
+<video id="mivideo" controls>
+	<source src="http://easyhtml5video.com/images/happyfit2.ogv" type="video/ogg"></source>
+	Tu navegador no soporta el elemento <code>video</code>
+</video>
+<br/>
+<button id="parar">Parar la Descarga</button>
+<button id="pausar">Pausar la Descarga</button>
+
+<script>
+
+	//Obtenemos la referencia al vídeo
+	var v = document.getElementById("mivideo");
+		
+	// Iniciamos el vídeo automáticamente
+	v.play();
+	
+	// Creamos un listener sobre el botón parar
+	var parar = document.getElementById("parar");
+	parar.addEventListener("click",function(){
+			v.pause();			
+			v.src = "";
+			v.load();
+			alert("Parada la descarga del vídeo");
+		},false);
+	
+	// Creamos un listener sobre el botón pausar
+	var pausar = document.getElementById("pausar");
+	pausar.addEventListener("click",function(){
+			v.pause();			
+			//v.src = "";
+			alert("Pausada la descarga del vídeo");
+		},false);
+	
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/parar-la-descarga-de-un-video-en-html5/">http://lineadecodigo.com/html5/parar-la-descarga-de-un-video-en-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

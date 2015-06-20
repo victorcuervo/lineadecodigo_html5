@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Comprobar soporte de Canvas</title>
+<script type="text/javascript" src="http://lineadecodigo.com/js/modernizr/modernizr.js"></script>
+</head>
+<body>
+<h1>Comprobar soporte de Canvas</h1>
+
+<canvas height="300px" width="300px" id="micanvas"></canvas>
+<div id="soporte"></span>
+
+<script>
+var soporte = document.getElementById("soporte");
+
+var canvas = document.getElementById("micanvas");
+if (canvas.getContext) {
+	var ctx = canvas.getContext("2d");
+	ctx.fillStyle = "rgb(255,0,0)";
+	ctx.fillRect(20,20,100,100);
+	ctx.fillStyle = "rgb(0,255,0)";
+	ctx.fillRect(60,60,140,140);
+	ctx.fillStyle = "rgb(0,0,255)";
+	ctx.fillRect(100,100,180,180);	
+	
+	soporte.innerHTML="SI hay soporte del CANVAS";
+} else {
+	// No hay soporte de Canvas
+	soporte.innerHTML="NO hay soporte del CANVAS";
+}
+
+if (Modernizr.canvas)
+	soporte.innerHTML=soporte.innerHTML + "<br/>SI hay soporte del CANVAS (por Modernizr)";
+else
+	soporte.innerHTML=soporte.innerHTML + "<br/>NO hay soporte del CANVAS (por Modernizr)";
+
+
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/detectar-el-soporte-del-canvas-de-html5/">http://lineadecodigo.com/html5/detectar-el-soporte-del-canvas-de-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Corrector Ortografico en HTML5</title>
+</head>
+<body>
+<h1>Corrector Ortografico en HTML5</h1>
+
+<label for="texto">Escribe texto...</label><br/>
+<textarea id="texto" rows="12" cols="100" spellcheck="false">ambito de acion.</textarea><br/>
+<button id="validar">Validar la Ortografía</button>
+<button id="novalidar">Quitar la Validación</button>
+
+<script>
+var boton = document.getElementById("validar");
+var boton2 = document.getElementById("novalidar");
+var texto = document.getElementById("texto");
+
+boton.addEventListener("click",function(ev){
+	texto.spellcheck = true;
+	texto.focus();
+},true);
+
+boton2.addEventListener("click",function(ev){
+	texto.spellcheck = false;
+	texto.focus();
+},true);
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/activar-el-corrector-ortografico-con-html5/">http://lineadecodigo.com/html5/activar-el-corrector-ortografico-con-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

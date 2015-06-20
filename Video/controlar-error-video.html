@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Control de error en carga del v&iacute;deo</title>
+</head>
+<body>
+<h1>Control de error en carga del v&iacute;deo</h1>
+
+<video id="mivideo" controls>
+	<source src="videonoexiste.ogv" type="video/ogg"></source>
+	Tu navegador no soporta el elemento <code>video</code>
+</video>
+<br/>
+<div id="errores"><strong>Trazas de Error</strong><br/></div>
+
+
+<script>
+	var v = document.getElementById("mivideo");
+
+	function logError(texto){
+		var mierror = document.getElementById("errores");
+		mierror.innerHTML = mierror.innerHTML + texto + "<br/>";
+	}
+
+	v.addEventListener("error",function(ev){
+		logError("Error en el vídeo");	
+		if (ev.currentTarget.networkState == ev.currentTarget.NETWORK_NO_SOURCE){
+				logError("No encontrado el origen del vídeo");
+		}		
+	},true);	
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/controlar-un-error-de-carga-de-un-video-en-html5/">http://lineadecodigo.com/html5/controlar-un-error-de-carga-de-un-video-en-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>

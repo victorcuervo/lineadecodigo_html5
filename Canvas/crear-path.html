@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Crear un Path</title>
+</head>
+<body>
+<h1>Crear un Path</h1>
+
+<canvas height="300px" width="300px" id="micanvas">
+Su navegador no soporta en elemento CANVAS</canvas>
+
+<script>
+var canvas = document.getElementById("micanvas");
+var ctx = canvas.getContext("2d");
+
+ctx.beginPath();
+
+ctx.moveTo(0,0);
+ctx.lineTo(100,100);
+ctx.arc(150,100,100,(Math.PI/180)*180,0,true);
+
+// Mueves el pencil y luego persistes con stroke
+ctx.strokeStyle = "#f00";
+ctx.stroke();
+
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/crear-un-path-sobre-un-canvas-de-html5/">http://lineadecodigo.com/html5/crear-un-path-sobre-un-canvas-de-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+</body>
+</html>
