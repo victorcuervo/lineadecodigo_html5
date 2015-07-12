@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Boton Play y Stop</title>
+</head>
+<body>
+<h1>Boton Play y Stop</h1>
+
+<audio src="http://lineadecodigo.com/recursos/audio/mimusica.mp3" controls>  
+  Tu navegador no soporta el elemento <code>audio</code>.  
+</audio>  
+
+<button id="boton">Play</button>
+
+<script type="text/javascript">
+ var v = document.getElementsByTagName("audio")[0];
+ var sound = false;
+ 
+ var boton = document.getElementById("boton");
+ boton.addEventListener("click", function(){
+	if (!sound) {
+		v.play();
+		this.innerHTML = "Pause";
+		sound = true;
+	} else {
+		v.pause();
+		this.innerHTML = "Play";
+		sound = false;
+	}
+ });
+ 
+ 
+</script>
+
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/boton-play-pause-con-audio-html5/">http://lineadecodigo.com/html5/boton-play-pause-con-audio-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
