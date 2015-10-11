@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cargando Bateria</title>
+</head>
+<body>
+<h1>Cargando Bateria</h1>
+
+<div><p>Ejemplo que nos muestra si el dispositivo está cargando la batería o no.</p>
+<p><span id="cargando"></span> se está cargando la batería</p></div>
+
+<script>
+
+navigator.getBattery().then(function (battery) {
+	
+	// Volcamos la información por consola
+	var txt = " se está cargando la batería.";
+	console.log((battery.charging)?"SÍ"+txt:"NO"+txt);
+	
+	// Elemento del DOM
+	var cargando = document.getElementById("cargando");
+	cargando.innerHTML = (battery.charging)?"SÍ":"NO";
+	
+	battery.addEventListener('chargingchange', function() {
+		console.log((battery.charging)?"SÍ"+txt:"NO"+txt);
+		cargando.innerHTML = (battery.charging)?"SÍ":"NO";
+	})
+	
+});
+
+</script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/saber-si-la-bateria-esta-cargando-con-html5/">http://lineadecodigo.com/html5/saber-si-la-bateria-esta-cargando-con-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+
+
+</body>
+</html>
