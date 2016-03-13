@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vídeo Fondo de Página</title>
+<style>
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+   
+}
+
+video { 
+        
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    
+    position: fixed;    
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); 
+    
+    z-index: -100;
+    
+  	background-size: cover;
+  	
+}
+
+</style>
+</head>
+<body>
+<h1>Vídeo Fondo de Página</h1>
+Estás viendo un vídeo como fondo de página.
+
+
+<video id="mivideo" autoplay="autoplay" controls>
+	<source src="http://lineadecodigo.com/recursos/videos/tecla.ogv" type="video/ogg"></source>
+	Tu navegador no soporta el elemento <code>video</code>
+</video>
+
+
+
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/video-background-html5/">http://lineadecodigo.com/html5/video-background-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
