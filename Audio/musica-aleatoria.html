@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Música Aleatoria</title>
+</head>
+<body>
+<h1>Música Aleatoria</h1>
+
+<audio id="miaudio">  
+  Tu navegador no soporta el elemento <code>audio</code>.  
+</audio>  
+
+<h2>Sonando...</h2>
+<div id="texto"></div>
+
+<h2>Canciones</h2>
+<ul id="listado"></ul>
+
+
+
+<script>
+
+var reproductor = document.getElementById("miaudio");
+
+function cargarCancion(numero){
+		 
+	// Cargamos la canción de forma dinámica
+	var source= document.createElement('source');
+	source.src=lista[numero][0];
+	source.type="audio/ogg";
+	 
+	reproductor.appendChild(source);
+	
+	reproductor.load();
+	reproductor.play();
+	
+	var texto = document.getElementById("texto");
+	texto.innerHTML = lista[numero][1];
+	
+}
+
+function aleatorio() {
+	return Math.round(Math.random()*(lista.length-1));
+}
+
+var lista = [['http://lineadecodigo.com/recursos/audio/nirvana.ogg','Nirvana - Lithium (Live at Reading 1992)'],['http://lineadecodigo.com/recursos/audio/blur.ogg','Blur - Country House'],['http://lineadecodigo.com/recursos/audio/weezer.ogg','Weezer - Buddy Holly']];
+
+
+var listado = document.getElementById("listado");
+for (x=0;x<lista.length;x++) {
+	var item = document.createElement("li");
+	item.innerHTML = lista[x][1];
+	listado.appendChild(item);
+}
+
+cargarCancion(aleatorio()); 
+
+reproductor.addEventListener("ended", function(){
+	cargarCancion(aleatorio());
+ });
+  
+</script>
+
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/musica-aleatoria-con-html5/">http://lineadecodigo.com/html5/musica-aleatoria-con-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
