@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Volumen Audio HTML5</title>
+</head>
+<body>
+<h1>Volumen Audio HTML5</h1>
+
+<audio id="reproductor" controls> 
+	<source src="http://lineadecodigo.com/recursos/audio/mimusica.ogg" type="audio/ogg">
+	<source src="http://lineadecodigo.com/recursos/audio/mimusica.mp3" type="audio/mpeg">
+  	Tu navegador no soporta el elemento <code>audio</code>.  
+</audio>  
+
+
+<input type="range" min="0" max="1" value="0.5" step="0.1" id="mislider">
+<span id="valor"></span>
+
+<script>
+var reproductor = document.getElementById("reproductor");
+reproductor.volume = 0.5;
+
+var barra = document.getElementById("mislider");
+
+barra.addEventListener("change",function(ev){
+	
+	var resultado = document.getElementById("valor");
+	resultado.innerHTML = ev.currentTarget.value;
+	
+	reproductor.volume = ev.currentTarget.value;
+	
+},true);
+
+document.getElementById("valor").innerHTML = document.getElementById("mislider").value;
+
+
+
+
+</script>
+
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/volumen-del-audio-con-html5/">http://lineadecodigo.com/html5/volumen-del-audio-con-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
