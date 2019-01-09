@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Evento Estados History API</title>
+
+</head>
+<body>
+
+<h1>Evento Estados History API</h1>
+<p> Prueba a moverte por el historial con los botones de back y forward.</p>
+
+<article>
+  <h2>Salida</h2>
+  <div id="salida"></div>
+</article>
+
+
+
+<script>
+
+  var consola = document.getElementById("salida");
+  function escribir(texto) {
+    actual = consola.innerHTML
+    consola.innerHTML = actual + "<br>" + texto;
+  }
+
+  window.onpopstate = function(event) {
+      escribir("Te has desplazado a " + JSON.stringify(event.state));
+    };
+
+  history.pushState({ pagina: "1" }, "Titulo 1", "history-states-event.html#p1");
+  escribir("Hemos añadido el estado " + JSON.stringify(history.state));
+
+  history.pushState({ pagina: "2" }, "Titulo 2", "history-states-event.html#p2");
+  escribir("Hemos añadido el estado " +  JSON.stringify(history.state));
+
+  escribir("El número de estados es de " + history.length);
+
+</script>
+
+<br><br>
+<hr>
+Artículo disponible en: <a href="http://lineadecodigo.com/html5/cambio-de-estado-en-el-historial/">http://lineadecodigo.com/html5/cambio-de-estado-en-el-historial/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+
+</body>
+</html>
