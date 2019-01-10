@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Crear Estados History API</title>
+
+</head>
+<body>
+
+<h1>Crear Estados History API</h1>
+
+<article>
+  <h2>Salida</h2>
+  <div id="salida"></div>
+</article>
+
+
+<script>
+
+var consola = document.getElementById("salida");
+function escribir(texto) {
+  actual = consola.innerHTML
+  consola.innerHTML = actual + "<br>" + texto;
+}
+
+history.pushState({ pagina: "1" }, "Titulo 1", "history-states.html#p1");
+escribir( JSON.stringify(history.state));
+
+history.pushState({ pagina: "2" }, "Titulo 2", "history-states.html#p2");
+escribir( JSON.stringify(history.state));
+
+escribir("El número de estados es de " + history.length);
+
+</script>
+
+<br><br>
+<hr>
+Artículo disponible en: <a href="http://lineadecodigo.com/html5/gestionar-estados-del-historial-con-html5/">http://lineadecodigo.com/html5/gestionar-estados-del-historial-con-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+</body>
+</html>
