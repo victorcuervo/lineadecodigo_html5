@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Reemplazar Estados History API</title>
+
+</head>
+<body>
+
+<h1>Reemplazar Estados History API</h1>
+
+<article>
+  <h2>Salida</h2>
+  <div id="salida"></div>
+</article>
+
+
+
+<script>
+
+  var consola = document.getElementById("salida");
+  function escribir(texto) {
+    actual = consola.innerHTML
+    consola.innerHTML = actual + "<br>" + texto;
+  }
+
+ // El estado inicial es null. Lo vamos a asignar un valor de estado
+  escribir("Estado inicial: " +  JSON.stringify(history.state));
+  history.replaceState({ pagina: "1" }, "Titulo 1", "history-states-replace.html#p1");
+  escribir("Estado renombrado: " +  JSON.stringify(history.state));
+
+  escribir("El número de estados es de " + history.length);
+
+</script>
+
+<br><br>
+<hr>
+Artículo disponible en: <a href="http://lineadecodigo.com/html5/reemplazar-un-estado-del-history-api/">http://lineadecodigo.com/html5/reemplazar-un-estado-del-history-api/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+</body>
+</html>
