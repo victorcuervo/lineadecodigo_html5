@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Imagen Pantalla Completa con Fullscreen API</title>
+
+</head>
+<body>
+
+<h1>Imagen Pantalla Completa con Fullscreen API</h1>
+
+
+<img src="../Resources/images/imagen.png" id="miimagen" alt="Imagen de Ejemplo"/><br>
+Haz doble click en la imagen para verla a pantalla completa.
+
+
+<script>
+
+function getFullscreen(element){
+  if(element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if(element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if(element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if(element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+}
+
+var imagen = document.getElementById("miimagen");
+imagen.addEventListener("dblclick", function(e){
+  getFullscreen(this);
+},false);
+
+</script>
+
+<br><br>
+<hr>
+Artículo disponible en: <a href="http://lineadecodigo.com/html5/imagen-a-pantalla-completa-con-html5/">http://lineadecodigo.com/html5/imagen-a-pantalla-completa-con-html5/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
