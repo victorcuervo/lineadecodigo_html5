@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejes Coordenadas</title>
+</head>
+<body>
+
+    <h1>Ejes Coordenadas</h1>
+    <canvas height="600px" width="1000px" id="micanvas">
+        Su navegador no soporta en elemento CANVAS
+    </canvas>
+
+    <br/><br/>
+    <hr>
+    Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/pdte/">http://lineadecodigo.com/html5/pdte/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+    
+    <script>
+
+        // Canvas
+        var canvas = document.getElementById("micanvas");
+        var ctx = canvas.getContext("2d");
+        let alto = canvas.height;
+        let ancho = canvas.width;
+
+        // Ejes
+        var grid_size = 20;
+        var x_axis_size = ancho-(2*grid_size);
+        var y_axis_size = alto-(2*grid_size);
+        var x_cero = 500;
+        var y_cero = 300;
+
+        function grid(ctx) {
+            ctx.beginPath();
+            // Cuadriculas X
+            for (var x=0; x<=ancho; x=x+grid_size){
+                ctx.moveTo(x,0);
+                ctx.lineTo(x,alto);
+            }
+            
+            // Cuadrículas Y
+            for (var y=0; y<=ancho; y=y+grid_size){
+                ctx.moveTo(0,y);
+                ctx.lineTo(ancho,y);
+            }
+            
+            // Mueves el pencil y luego persistes con stroke
+            ctx.strokeStyle = "#dcdcdc";
+            ctx.lineWidth=1;
+            ctx.stroke();
+        }
+
+        function ejes(ctx) {
+
+            // Eje x del 0
+            ctx.beginPath();
+            ctx.moveTo(x_cero-(x_axis_size/2),y_cero);
+            ctx.lineTo(x_cero+(x_axis_size/2),y_cero);
+
+            // Eje y del 0
+            ctx.moveTo(x_cero,y_cero-(y_axis_size/2));
+            ctx.lineTo(x_cero,y_cero+(y_axis_size/2));
+
+            ctx.strokeStyle = "#000";
+            ctx.lineWidth=2;
+            ctx.stroke();
+
+            // Ponemos números
+            ctx.font = "bold 10px sans-serif";
+
+            // Los de Y
+            let x = 0;
+            while (x*grid_size <= (y_axis_size/2)) {
+                ctx.textAlign = "end";
+                ctx.fillText(x,x_cero-(grid_size/4),y_cero-(grid_size*x));
+                x++;
+            }
+
+            x = 1;
+            while (x*grid_size <= (y_axis_size/2)) {
+                ctx.textAlign = "end";
+                ctx.fillText(-x,x_cero-(grid_size/4),y_cero+(grid_size*x));
+                x++;
+            }
+
+            // Los de X
+
+            x = 1;
+            while (x*grid_size <= (x_axis_size/2)) {
+                ctx.textAlign = "end";
+                ctx.fillText(x,x_cero+(grid_size*x),y_cero+(grid_size/2));
+                x++;
+            }   
+
+            x = 1;
+            while (x*grid_size <= (x_axis_size/2)) {
+                ctx.textAlign = "end";            
+                ctx.fillText(-x,x_cero-(grid_size*x),y_cero+(grid_size/2));
+                x++;
+            }   
+
+        }
+        
+        // Inicio
+        grid(ctx);
+        ejes(ctx);    
+
+</script>
+    
+</body>
+</html>
