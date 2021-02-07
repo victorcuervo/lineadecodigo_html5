@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotar Polígonos</title>
+</head>
+<body>
+
+    <h1>Rotar polígonos</h1>
+    <canvas height="600px" width="1000px" id="micanvas">
+        Su navegador no soporta en elemento CANVAS
+    </canvas>
+
+    <br/>
+
+    <button id="r90">Rotar 90</button>
+    <button id="r180">Rotar 180</button>
+    <button id="r270">Rotar 270</button>
+
+    <form id="poligono">
+        <legend>Coordenadas</legend>
+        <label for="coordX">X: </label>
+        <input type="text" id="coordX"/>
+        <label for="coordY">Y: </label>
+        <input type="text" id="coordY"/>
+    </form>
+
+    <button id="init">1 - Iniciar</button>
+    <button id="add">2 - Añadir Coordenada</button>
+    <button id="draw">3 - Dibujar</button>
+    
+    <br/><br/>
+    <div id="log">
+        <strong>Log</strong><br/>
+        Actividad del log. (1) inicia la secuencia, (2) ves añadiendo coordenadas, (3) dibuja el polígono.
+    </div>
+
+    <br/><br/>
+    <hr>
+    Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/pdte/">http://lineadecodigo.com/html5/pdte/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+    
+    <script>
+
+        // Canvas
+        var canvas = document.getElementById("micanvas");
+        var ctx = canvas.getContext("2d");
+        let alto = canvas.height;
+        let ancho = canvas.width;
+
+        // Ejes
+        var grid_size = 20;
+        var x_axis_size = ancho-(2*grid_size);
+        var y_axis_size = alto-(2*grid_size);
+        var x_cero = 500;
+        var y_cero = 300;
+
+        // Polígonos
+        var poligono = [[3,3,9],[3,9,3]];
+        var m90 = [[0,-1],[1,0]];
+        var m180 = [[-1,0],[0,-1]];
+        var m270 = [[0,1],[-1,0]];
+
+        // Log
+        var log = document.getElementById("log");
+
+        function addLog(texto) {
+            log.innerHTML = log.innerHTML + "<br>" + texto;
+        }
+        
+        function multiplicarMatriz(m1,m2) {
+
+            fil_m1 = m1.length;
+		    col_m1 = m1[0].length;
+		
+		    fil_m2 = m2.length;
+		    col_m2 = m2[0].length;
+
+		    if (col_m1 != fil_m2)
+			    throw "No se pueden multiplicar las matrices";
+				    
+		    let multiplicacion = new Array(fil_m1);
+            for (x=0; x<multiplicacion.length;x++)
+                multiplicacion[x] = new Array(col_m2).fill(0);
+
+		    for (x=0; x < multiplicacion.length; x++) {
+                for (y=0; y < multiplicacion[x].length; y++) {            		            		
+            		for (z=0; z<col_m1; z++) {
+            			multiplicacion [x][y] = multiplicacion [x][y] + m1[x][z]*m2[z][y]; 
+            		}
+                }
+		    }
+
+            return multiplicacion;
+
+        }   
+
+        function ajustarCoordenadas(coordenadas) {
+
+            // Nuevo Array
+            let coords = new Array(coordenadas.length);
+            for (x=0;x<coordenadas.length;x++)
+                coords[x] = new Array(coordenadas[x].length);
+           
+            // Ajustamos las coordenadas
+            for (x=0;x<coordenadas[0].length;x++)
+              coords[0][x] = x_cero+(coordenadas[0][x]*grid_size);            
+            
+            for (x=0;x<coordenadas[1].length;x++)
+              coords[1][x] = y_cero-(coordenadas[1][x]*grid_size);
+
+            return coords;
+
+        }
+        
+        function dibujarPoligono(ctx,coords) {
+
+            ctx.beginPath();
+            ctx.moveTo(coords[0][0], coords[1][0]);
+
+            for (x=1;x<coords[0].length;x++)
+                ctx.lineTo(coords[0][x], coords[1][x]);                
+            
+            ctx.closePath();
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = "#FFCC00";  
+            ctx.stroke();            
+            ctx.fillStyle = "#FFCC00";        
+            ctx.fill();
+
+        }
+
+
+        function grid(ctx) {
+            ctx.beginPath();
+            // Cuadriculas X
+            for (var x=0; x<=ancho; x=x+grid_size){
+                ctx.moveTo(x,0);
+                ctx.lineTo(x,alto);
+            }
+            
+            // Cuadrículas Y
+            for (var y=0; y<=ancho; y=y+grid_size){
+                ctx.moveTo(0,y);
+                ctx.lineTo(ancho,y);
+            }
+            
+            // Mueves el pencil y luego persistes con stroke
+            ctx.strokeStyle = "#dcdcdc";
+            ctx.lineWidth=1;
+            ctx.stroke();
+        }
+
+        function ejes(ctx) {
+
+            // Eje x del 0
+            ctx.beginPath();
+            ctx.moveTo(x_cero-(x_axis_size/2),y_cero);
+            ctx.lineTo(x_cero+(x_axis_size/2),y_cero);
+
+            // Eje y del 0
+            ctx.moveTo(x_cero,y_cero-(y_axis_size/2));
+            ctx.lineTo(x_cero,y_cero+(y_axis_size/2));
+
+            ctx.strokeStyle = "#000";
+            ctx.lineWidth=2;
+            ctx.stroke();
+
+            // Ponemos números
+            ctx.font = "bold 10px sans-serif";
+
+            // Los de Y
+            let x = 0;
+            while (x*grid_size <= (y_axis_size/2)) {
+                ctx.textAlign = "end";
+                ctx.fillText(x,x_cero-(grid_size/4),y_cero-(grid_size*x));
+                x++;
+            }
+
+            x = 1;
+            while (x*grid_size <= (y_axis_size/2)) {
+                ctx.textAlign = "end";
+                ctx.fillText(-x,x_cero-(grid_size/4),y_cero+(grid_size*x));
+                x++;
+            }
+
+            // Los de X
+
+            x = 1;
+            while (x*grid_size <= (x_axis_size/2)) {
+                ctx.textAlign = "end";
+                ctx.fillText(x,x_cero+(grid_size*x),y_cero+(grid_size/2));
+                x++;
+            }   
+
+            x = 1;
+            while (x*grid_size <= (x_axis_size/2)) {
+                ctx.textAlign = "end";            
+                ctx.fillText(-x,x_cero-(grid_size*x),y_cero+(grid_size/2));
+                x++;
+            }   
+
+        }
+
+        function limpiar(canvas){
+            canvas.width=canvas.width;            
+        }
+
+        function rotar(grados){    
+            limpiar(canvas);
+            grid(ctx);
+            ejes(ctx);               
+            poligono = multiplicarMatriz(grados,poligono);
+            t = ajustarCoordenadas(poligono);
+            dibujarPoligono(ctx,t);
+        }
+        
+        var r90 = document.getElementById("r90");
+        r90.addEventListener("click",function(){
+            rotar(m90);
+        },false);
+        
+        var r180 = document.getElementById("r180");    
+        r180.addEventListener("click",function(){
+            rotar(m180);
+        },false);
+        
+        var r270 = document.getElementById("r270");
+        r270.addEventListener("click",function(){
+            rotar(m270);
+        },false);
+
+        var init = document.getElementById("init");
+        init.addEventListener("click",function(){            
+            limpiar(canvas);
+            grid(ctx);
+            ejes(ctx);  
+            poligono = [[],[]];            
+            addLog("Inicializado");
+        },false);
+
+        var add = document.getElementById("add");
+        add.addEventListener("click",function(){            
+            let coordX = document.getElementById("coordX").value;
+            let coordY = document.getElementById("coordY").value;
+            poligono[0].push(coordX);
+            poligono[1].push(coordY);
+            addLog("Coordenadas. X: " + coordX + ", Y:" + coordY);           
+        },false);
+
+        var draw = document.getElementById("draw");
+        draw.addEventListener("click",function(){            
+            let poligono_tmp = ajustarCoordenadas(poligono);
+            dibujarPoligono(ctx,poligono_tmp);
+            addLog("Dibujar Polígono");           
+        },false);
+
+        
+        // Inicio
+        grid(ctx);
+        ejes(ctx);    
+        var t2 = ajustarCoordenadas(poligono);
+        dibujarPoligono(ctx,t2);
+
+        </script>
+    
+</body>
+</html>
