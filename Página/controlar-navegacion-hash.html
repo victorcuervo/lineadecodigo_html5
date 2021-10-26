@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlar cambio hash</title>
+</head>
+<body onhashchange="cambioHash();">
+
+    <h1>Controlar Navegaciones SPA por Hash</h1>
+
+    <button onclick="nuevoHash('P1');">Página 1</button> 
+    <button onclick="nuevoHash('P2');">Página 2</button>
+    <button onclick="nuevoHash('P3');">Página 3</button>
+
+    <br/><br/>
+
+    <div id="mensaje"></div>
+
+    <script>
+
+        function nuevoHash(nombre) {
+            location.hash = "#"+nombre;
+        }
+
+        function cambioHash(){
+            document.getElementById("mensaje").innerHTML = "Navegación al hash '" + location.hash + "'";
+        }
+    </script>
+
+    <br/><br/>
+    <hr>
+    Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/pdte/">http://lineadecodigo.com/html5/pdte/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
