@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Idioma</title>
+</head>
+<body onlanguagechange="cambioIdioma();">
+
+    <h1>Cambio de Idioma</h1>
+    <div id="mensaje"></div>
+
+    <script>
+
+        var mensaje = document.getElementById("mensaje");
+        mensaje.innerHTML = "El idioma por defecto es " + navigator.language;
+
+        function cambioIdioma(){
+            mensaje.innerHTML = "Se ha cambiado el idioma del documento a " +   navigator.language;
+        }
+
+
+    </script>
+
+    <br/><br/>
+    <hr>
+    Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/pdte/">http://lineadecodigo.com/html5/pdte/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
