@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evento OnAfterPrint</title>
+</head>
+
+<body onbeforeprint="preimpresion();">
+
+    <h1>Controlar Inicio Impresión en HTML5</h1>
+
+    <div id="mensaje"></div>
+
+
+    <script>
+        function mensaje(texto){
+            contenido = document.getElementById("mensaje");
+            contenido.innerHTML = texto;        
+        }
+
+        function preimpresion(){
+            mensaje("Vas a imprimir esta pagina");
+        }
+    </script>
+
+    <br/><br/>
+    <hr>
+    Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/pdte/">http://lineadecodigo.com/html5/pdte/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+    
+</body>
+</html>
