@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=ç, initial-scale=1.0">
+    <title>Controlar Abandono Página</title>
+
+    <script type="text/javascript">
+        
+        window.addEventListener("beforeunload",function(e){
+            document.getElementById("mensaje").innerHTML = "Si se va no se guardarán los datos";
+            (e || window.event).returnValue = null;
+            return null;
+        },true);
+        
+
+    </script>
+
+</head>
+<body>
+    
+<h1>Controlar Abandono Página</h1>
+
+<p> Sal de la página para comprobar cómo se controla este evento</p>
+
+<div id="mensaje"></div>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/pdte/">http://lineadecodigo.com/html5/pdte/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+</body>
+</html>
