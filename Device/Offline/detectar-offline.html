@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dectectar Offline/OnLine</title>
+
+    
+</head>
+<body>
+
+    <h1>Dectectar Offline/OnLine</h1>
+
+    El navegador está en modo <strong><span id="mode"></span></strong>
+
+    <br/><br/>
+
+    <hr>
+    Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/nivel-de-la-bateria-con-html5/">http://lineadecodigo.com/html5/nivel-de-la-bateria-con-html5/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+    <script>
+        window.addEventListener("offline",function(e){
+            console.log("Conexión perdida")
+            texto = document.getElementById("mode");
+            texto.innerHTML = "OffLine";
+        });
+
+        window.addEventListener("online",function(e){
+            console.log("Conexión establecida")
+            texto = document.getElementById("mode");
+            texto.innerHTML = "OnLine";
+        });
+
+        texto = document.getElementById("mode");
+        modo = (window.navigator.onLine)?"OnLine":"OffLine";
+        texto.innerHTML = modo;
+        console.log("Conexión Inicial " + modo);
+
+    </script>
+    
+</body>
+</html>
