@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar elemento en la Web Storage</title>
+</head>
+<body>
+
+    <h1>Cambios en el storage</h1>
+    <div id="cambios"></div>
+
+    <script>
+
+    window.addEventListener("storage",function(e){
+        let cambios = document.getElementById("cambios");
+        cambios.innerHTML = cambios.innerHTML + "La clave " + e.key + " cambia su antiguo valor de '" + e.oldValue + "' por el nuevo valor '" + e.newValue + "'.<br>";
+    });
+
+    </script>
+
+</body>
+</html>

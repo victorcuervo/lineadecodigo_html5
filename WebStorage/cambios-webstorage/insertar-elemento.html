@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insertar elemento en la Web Storage</title>
+</head>
+<body>
+
+    <h1>Insertar elemento en la Web Storage</h1>
+
+    <form>
+        <input type="text" id="nombre"/>
+        <button id="boton">Modificar Caché</button>
+    </form>
+
+    <script>
+    
+        let campo = document.getElementById("boton");
+        campo.addEventListener("click", function() {
+            let nombre = document.getElementById("nombre").value;
+            if (localStorage)
+                localStorage.setItem("nombre",nombre);            
+        });
+
+</script>
+
+</body>
+</html>
