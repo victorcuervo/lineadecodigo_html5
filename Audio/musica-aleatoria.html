@@ -11,8 +11,10 @@
   Tu navegador no soporta el elemento <code>audio</code>.  
 </audio>  
 
-<h2>Sonando...</h2>
+<h2>Sonará...</h2>
 <div id="texto"></div>
+
+<button id="play">Pulsa para escuchar</button>
 
 <h2>Canciones</h2>
 <ul id="listado"></ul>
@@ -33,7 +35,6 @@ function cargarCancion(numero){
 	reproductor.appendChild(source);
 	
 	reproductor.load();
-	reproductor.play();
 	
 	var texto = document.getElementById("texto");
 	texto.innerHTML = lista[numero][1];
@@ -46,7 +47,6 @@ function aleatorio() {
 
 var lista = [['http://lineadecodigo.com/recursos/audio/nirvana.ogg','Nirvana - Lithium (Live at Reading 1992)'],['http://lineadecodigo.com/recursos/audio/blur.ogg','Blur - Country House'],['http://lineadecodigo.com/recursos/audio/weezer.ogg','Weezer - Buddy Holly']];
 
-
 var listado = document.getElementById("listado");
 for (x=0;x<lista.length;x++) {
 	var item = document.createElement("li");
@@ -58,6 +58,10 @@ cargarCancion(aleatorio());
 
 reproductor.addEventListener("ended", function(){
 	cargarCancion(aleatorio());
+ });
+
+ document.getElementById("play").addEventListener("click", function(){
+	reproductor.play();
  });
   
 </script>
