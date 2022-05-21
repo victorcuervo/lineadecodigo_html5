@@ -8,12 +8,18 @@
 </head>
 <body>
 
-    <form id="miformualario" method="get" action="send">
+    <form id="miformualario" method="post" action="send" novalidate>
         <label for="nombre">Nombre: </label>
-        <input type="text" name="nombre" id="nombre"/>        
+        <input type="text" name="nombre" id="nombre" required/>        
     </form>
 
-    <button id="miboton" form="miformualario">Enviar</button>
-    
+    <button id="miboton" form="miformualario" formaction="enviar.php" formmethod="get">Enviar</button>
+
+
+    <br/><br/>
+    <hr>
+    Artículo disponible en: <a href="http://lineadecodigo.com/html5/asociar-un-boton-a-cualquier-formulario-con-html5/">http://lineadecodigo.com/html5/asociar-un-boton-a-cualquier-formulario-con-html5/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
 </body>
 </html>
