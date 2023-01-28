@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventana de Dialogo en HTML5</title>
+</head>
+<body>
+
+  <h1>Ventana de Dialogo en HTML5</h1>
+
+  <dialog id="dialogo">
+    <p>¿Te gusta este ejemplo?</p>
+    <menu>
+      <button id="cancel" type="button">Cancel</button>
+      <button id="ok" type="button">OK</button>
+    </menu>
+  </dialog>
+
+  <button id="mostrar">Mostrar la Ventana</button>
+
+  <script>
+    b = document.getElementById("mostrar");
+    b.addEventListener("click", function(){
+        console.log("Hola");
+        d = document.getElementById("dialogo");
+        d.open = true;
+    },false);
+  </script>
+
+<br/><br/>
+<hr>
+Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/pdte/">http://lineadecodigo.com/html5/pdte/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+    
+</body>
+</html>
