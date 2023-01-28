@@ -20,12 +20,25 @@
   <button id="mostrar">Mostrar la Ventana</button>
 
   <script>
-    b = document.getElementById("mostrar");
-    b.addEventListener("click", function(){
-        console.log("Hola");
-        d = document.getElementById("dialogo");
-        d.open = true;
-    },false);
+
+    
+    var boton = document.getElementById("mostrar");    
+    var dialogo = document.getElementById("dialogo");
+    var botonCancelar = document.getElementById("cancel");
+    var botonOK = document.getElementById("ok");
+
+    boton.addEventListener("click", function(){        
+        dialogo.showModal();
+    });
+    
+    botonCancelar.addEventListener('click', function() {
+        dialogo.close();
+    });
+
+    botonOK.addEventListener('click', function() {
+        dialogo.close();
+    });
+
   </script>
 
 <br/><br/>
