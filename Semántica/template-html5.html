@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates HTML5</title>
+</head>
+<body>
+
+    <h1>Templates HTML5</h1>
+
+<table id="ciudades">
+  <thead>
+    <tr>
+      <td>Ciudad</td>
+      <td>País</td>    
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
+
+<template id="ciudad">
+  <tr>
+    <td class="record"></td>
+    <td></td>
+  </tr>
+</template>
+
+<script>
+
+
+// Comprobamos si el navegador soporta el elemento template comprobando
+// si tiene el atributo content
+
+if ('content' in document.createElement('template')) {
+    
+    const tbody = document.querySelector("tbody");
+    const template = document.querySelector("#ciudad");
+
+    // Clona la plantilla
+    const clone = template.content.cloneNode(true);
+    let td = clone.querySelectorAll("td");
+    td[0].textContent = "Barcelona";
+    td[1].textContent = "Spain";
+
+    tbody.appendChild(clone);
+
+    // Clona nuevamente la plantillax11
+    const clone2 = template.content.cloneNode(true);
+    td = clone2.querySelectorAll("td");
+    td[0].textContent = "Paris";
+    td[1].textContent = "Francia";
+
+    tbody.appendChild(clone2);
+}
+</script>
+    
+
+</body>
+</html>
