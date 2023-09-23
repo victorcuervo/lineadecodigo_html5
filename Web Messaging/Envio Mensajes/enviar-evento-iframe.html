@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Messaging</title>
+</head>
+<body>
+
+    <h1>Web Messaging</h1>
+    <button id="boton">Enviar Mensaje</button>
+    <br><br>
+
+    <iframe id="myiframe" src="detectar-evento.html" width="1000px" height="500px"></iframe>
+
+    <script>
+        boton = document.getElementById("boton");
+        boton.addEventListener("click",function() {
+            myiframe = document.getElementById("myiframe");
+            myiframe.contentWindow.postMessage("Hola",'*');
+        });
+    </script>
+    
+    <br/><br/>
+    <hr>
+    Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/pdte/">http://lineadecodigo.com/html5/pdte/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+</body>
+</html>
