@@ -13,19 +13,12 @@
 
     <script>
 
- 
-        texto = document.getElementById("texto");
-        texto.innerHTML = "Hola";
-        
-        function mensajeRecibido(e) {
-            console.log("Mensaje");
-            
+        function mensajeRecibido(e) {                       
             texto = document.getElementById("texto");
             texto.innerHTML = "Mensaje Recibido: " + e.data;
         }
 
     </script>
-
 
 
 </body>
