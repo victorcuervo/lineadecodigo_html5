@@ -15,13 +15,15 @@
 
 
     <script>
-        function mensaje(texto){
-            contenido = document.getElementById("mensaje");
+        function mensaje(texto) {
+            let contenido = document.getElementById("mensaje");
             contenido.innerHTML = texto;        
         }
 
         function preimpresion(){
-            mensaje("Vas a imprimir esta pagina el día " + new Intl.DateTimeFormat('es-ES',{dateStyle:'full'}).format(Date.now()));
+            let texto = "Vas a imprimir esta pagina el día ";
+            texto += new Intl.DateTimeFormat('es-ES',{dateStyle:'full'}).format(Date.now());
+            mensaje(texto);
         }
     </script>
 
