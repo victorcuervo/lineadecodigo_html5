@@ -12,13 +12,13 @@
 
     <script>
 
-
         window.addEventListener("rejectionhandled", function(event) {            
             console.log("Promesa Manejada rechazada. Razón: " + event.reason);
         }, false);
 
         window.addEventListener("unhandledrejection", function(event) {            
             console.log("Promesa Sin Manejar rechazada. Razón: " + event.reason);
+            event.preventDefault();
         }, false);
   
         // Creo una promesa y directamente la rechazo
@@ -34,7 +34,7 @@
     
     <br/><br/>
     <hr>
-    Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/pdte/">http://lineadecodigo.com/html5/pdte/</a><br/>
+    Art&iacute;culo disponible en: <a href="http://lineadecodigo.com/html5/gestionar-promesas-rechazadas/">http://lineadecodigo.com/html5/gestionar-promesas-rechazadas/</a><br/>
     <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
 
 </body>
