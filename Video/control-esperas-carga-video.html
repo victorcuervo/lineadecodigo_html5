@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Controlar esperas de carga de vídeos</title>
+</head>
+<body>
+<h1>Controlar esperas de carga de vídeos</h1>
+
+ 
+<video id="mivideo" controls>  
+  <source src="http://easyhtml5video.com/images/happyfit2.ogv" type="video/ogg"></source>
+  Tu navegador no soporta el elemento <code>video</code>.  
+</video>  
+<div id="info"></div>
+
+<script>
+  let mivideo = document.getElementById("mivideo");
+  let info = document.getElementById("info");
+
+  mivideo.onwaiting = function() {
+    info.innerHTML = info.innerHTML + "Esperando a que se cargue el vídeo<br>";    
+  };
+
+</script>
+
+<br/><br/>
+<hr>
+Artículo disponible en: <a href="http://lineadecodigo.com/html5/xxx/">http://lineadecodigo.com/html5/xxx/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
