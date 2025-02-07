@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Buscar por el vídeo</title>
+</head>
+<body>
+<h1>Buscar por el vídeo</h1>
+
+ 
+<video id="mivideo" src="../Resources/Video/tecla.mp4" controls>  
+  Tu navegador no soporta el elemento <code>video</code>.  
+</video>  
+<div id="info"></div>
+
+<script>
+  let mivideo = document.getElementById("mivideo");
+  let info = document.getElementById("info");
+  
+  mivideo.onseeking = function() {
+    let time = mivideo.currentTime;
+    info.innerHTML = info.innerHTML + "Buscando en el segundo " + time + "<br>";    
+
+  };
+</script>
+
+<br/><br/>
+<hr>
+Artículo disponible en: <a href="http://lineadecodigo.com/html5/xxx/">http://lineadecodigo.com/html5/xxx/</a><br/>
+<a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+</body>
+</html>
