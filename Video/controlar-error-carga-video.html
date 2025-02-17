@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlar Errores en Carga de Vídeos</title>
+</head>
+<body>
+    <h1>Controlar Errores en Carga de Vídeos</h1>
+    <video id="video" width="320" height="240" controls>
+        <source src="../Resources/Video/tecla.mp4" type="video/mp4">
+        Tu navegador no soporta elementos de vídeo
+    </video>
+    <p id="error-message" style="color: red;"></p>
+
+    <script>
+        const video = document.getElementById('video');
+        const errorMessage = document.getElementById('error-message');
+
+        video.addEventListener('suspend', (event) => {
+
+            errorMessage.innerHTML = 'La carga del vídeo se ha suspendido. Por favor, inténtelo de nuevo más tarde.';
+        });
+    </script>
+    
+</body>
+</html>
