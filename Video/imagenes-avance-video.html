@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imagenes en Avance de Vídeo</title>
+</head>
+<body>
+
+    <h1>Imagenes en Avance de Vídeo</h1>
+
+    <video id="mivideo" controls>
+        <source src="../Resources/Video/tecla.mp4" type="video/mp4"></source>
+        Tu navegador no soporta el elemento <code>video</code>
+    </video>
+    
+    <input type="text" id="tiempo" readonly>
+
+    <script>
+        const video = document.getElementById('mivideo');
+        const tiempo = document.getElementById('tiempo');
+
+        video.addEventListener('timeupdate', () => {
+            tiempo.value = video.currentTime.toFixed(2);
+            updateImage(video.currentTime);
+        });
+
+        function updateImage(currentTime) {
+            const imageContainer = document.getElementById('imageContainer');
+            const imageIndex = Math.floor(currentTime / 3);
+            const imageUrl = `../Resources/images/numeros/numero_${imageIndex+1}.png`;
+            imageContainer.src = imageUrl;
+        }
+    </script>
+    <img id="imageContainer" src="../Resources/images/numeros/numero_1.png" alt="Imagen de avance del vídeo">
+
+
+</body>
+</html>
