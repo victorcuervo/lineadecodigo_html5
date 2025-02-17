@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom sobre imagen</title>
+    <style>
+        .zoom-container {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            border: 2px solid #000;
+            position: relative;
+        }
+
+        .zoom-container img {
+            transition: transform 0.2s;
+            transform-origin: center center;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Zoom sobre imnagen</h1>
+    <p>Pasa con el ratón sobre la imagen y haz zoom sobre ella mediante la rueda del ratón o de forma gestual</p>
+    
+    <div class="zoom-container">
+        <img id="zoomImage" src="../Resources/images/logo.jpg" alt="Imagen para el ejemplo del Zoom" style="width: 100%; height: auto;">
+    </div>
+
+    <script>
+        const img = document.getElementById('zoomImage');
+        let scale = 1;
+        const scaleFactor = 0.1;
+
+        img.onwheel = function(event) {
+            event.preventDefault();
+            if (event.deltaY < 0) {
+                scale += scaleFactor;
+            } else {
+                scale -= scaleFactor;
+                if (scale < scaleFactor) {
+                    scale = scaleFactor;
+                }
+            }
+            img.style.transform = `scale(${scale})`;
+        };
+    </script>
+
+    <br/><br/>
+    <hr>
+    Artículo disponible en: <a href="http://lineadecodigo.com/html5/xxx/">http://lineadecodigo.com/html5/xxx/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
+
+</body>
+</html>
