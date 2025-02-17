@@ -8,15 +8,29 @@
 <body>
     <h1>Popover sobre botón</h1>
     <button popovertarget="pop1">Haz click aquí</button>
+    <button id="boton2">O Aquí</button>
     <div popover id="pop1">
         <h2>Este es un popover de HTML5</h2>
         <img src="../Resources/images/imagen.png" alt="Logo de HTML5">
     </div>
+
+    <script>
+        let boton2 = document.getElementById("boton2");
+        let pop1 = document.getElementById("pop1");
+
+        boton2.onclick = function () {            
+            pop1.showPopover();
+        }
+
+    </script>
+
     
+    
+
       
     <br/><br/>
     <hr>
-    Artículo disponible en: <a href="http://lineadecodigo.com/html5/xxx/">http://lineadecodigo.com/html5/xxx/</a><br/>
+    Artículo disponible en: <a href="https://lineadecodigo.com/html5/mensajes-emergentes-con-popover-en-html5/">https://lineadecodigo.com/html5/mensajes-emergentes-con-popover-en-html5/</a><br/>
     <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
 
     
