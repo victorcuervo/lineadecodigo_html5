@@ -7,10 +7,13 @@
 </head>
 <body>
     <h1>Controlar Errores en Carga de Vídeos</h1>
-    <video id="video" width="320" height="240" controls>
-        <source src="../Resources/Video/tecla.mp4" type="video/mp4">
-        Tu navegador no soporta elementos de vídeo
-    </video>
+    
+
+    <video id="video" src="http://easyhtml5video.com/images/happyfit2.ogv" controls>  
+        Tu navegador no soporta el elemento <code>video</code>.  
+    </video>  
+
+
     <p id="error-message" style="color: red;"></p>
 
     <script>
@@ -18,10 +21,17 @@
         const errorMessage = document.getElementById('error-message');
 
         video.addEventListener('suspend', (event) => {
-
             errorMessage.innerHTML = 'La carga del vídeo se ha suspendido. Por favor, inténtelo de nuevo más tarde.';
         });
     </script>
+
+    <button onclick="errorMessage.innerHTML = ''">Ocultar mensaje de error</button>
+
+    <br/><br/>
+    <hr>
+    Artículo disponible en: <a href="https://lineadecodigo.com/html5/cortes-en-la-descarga-de-videos-html5/">https://lineadecodigo.com/html5/cortes-en-la-descarga-de-videos-html5/</a><br/>
+    <a href="http://lineadecodigo.com" title="Linea de Codigo">lineadecodigo.com</a>
+
     
 </body>
 </html>
